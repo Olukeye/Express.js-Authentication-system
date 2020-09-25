@@ -5,7 +5,6 @@ const bcrypt          =   require('bcryptjs')
 const path            =   require('path')
 const User            =   require('./model/user')
 const jwt             =   require('jsonwebtoken')
-const hbs             =   require('hbs')
 const db              =   require('./db/mongoose')
 
 
@@ -26,7 +25,6 @@ const partialPath            = path.join(__dirname, '/template/partials')
 // setup handlebar for engine and view location > > >
 app.set('view engine', 'hbs')
 app.set('views', viewsPath)
-hbs.registerPartials(partialPath)
 
 
 //set up static directory to serve > > >
