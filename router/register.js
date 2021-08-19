@@ -30,7 +30,7 @@ try{
 // ===================================================>
 
 // setup for login/sign in route ======================>
-router.post('/login',async(req, res, next)=>{
+router.post('/login', async(req, res, next)=>{
     try{
         const user = await User.findOne({email: req.body.email})
         if(!user){
@@ -47,11 +47,12 @@ router.post('/login',async(req, res, next)=>{
     }catch(e){
         res.status(500).send()
     }
+    next()
 })
 // ====================================================>
 
 // =========Route for authenticating a user token===========>
-router.get('/user/me', auth,  async (req, res) => {
+router.get('/user', auth,  async (req, res) => {
     res.send(req.user)
 })
 // ===================================>
