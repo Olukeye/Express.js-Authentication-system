@@ -75,7 +75,7 @@ app.use('/api/v1', indexRouter);
 // }
 
 app.get('/', (_req, res) => {
-  res.send('/api/v1');
+  res.send('server is on');
 });
 
 app.listen(port, () => {
