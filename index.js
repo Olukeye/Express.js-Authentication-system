@@ -70,7 +70,7 @@ app.use('/api/v1', indexRouter);
 // }
 
 app.get('/', (_req, res) => {
-  res.redirect('/api/v1');
+  res.send('portfolio');
 });
 
 app.listen(port, () => {
