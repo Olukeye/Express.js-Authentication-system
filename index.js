@@ -1,9 +1,9 @@
-// const bodyparser      =   require('body-parser')
+const bodyparser      =   require('body-parser')
 // const express         =   require('express')
 // const router          =   require('./router/register')
 // const bcrypt          =   require('bcryptjs')
 // const path            =   require('path')
-// const cors            =   require('cors')
+const cors            =   require('cors')
 // const User            =   require('./model/user')
 // const jwt             =   require('jsonwebtoken')
 // const db              =   require('./db/mongoose')
@@ -54,6 +54,11 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.json())
 
+app.use( cors())
+app.use(bodyparser.json())
+
+
+app.use(bodyparser.urlencoded({extended:false}))
 const port = process.env.PORT || 5000;
 
 
@@ -62,7 +67,7 @@ app.use('/api/v1', indexRouter);
 
 
 // if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, '../frontend/build')))
+//   app.use(express.static(path.join(__dirname, 'https://firstporfolio.herokuapp.com/')))
 
 //   app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../frontend', 'build', 'index.html')))
 // } else {
@@ -70,7 +75,7 @@ app.use('/api/v1', indexRouter);
 // }
 
 app.get('/', (_req, res) => {
-  res.send('portfolio');
+  res.send('/api/v1');
 });
 
 app.listen(port, () => {
